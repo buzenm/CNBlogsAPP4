@@ -29,7 +29,7 @@
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <!--<NavigationViewItem Icon="Contact" Content="个人中心" Tag="UserPage"></NavigationViewItem>-->
-                <HyperlinkButton Content="评价此应用" NavigateUri="https:\\www.baidu.com"></HyperlinkButton>
+                <HyperlinkButton Margin="50,0,0,0" Content="评价此应用" NavigateUri="https:\\www.baidu.com"></HyperlinkButton>
             </NavigationView.PaneFooter>
             <Frame Name="ContentFrame"></Frame>
         </NavigationView>
