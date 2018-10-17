@@ -28,7 +28,7 @@ namespace CNBlogsAPP4
             this.InitializeComponent();
         }
 
-        public static string selectionNavigationViewMenuitem = "";
+        public string selectionNavigationViewMenuitem = "";
         private void MainNavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             
@@ -40,12 +40,25 @@ namespace CNBlogsAPP4
             {
                 selectionNavigationViewMenuitem = "设置";
             }
+            else
+            {
+                selectionNavigationViewMenuitem = "";
+            }
             switch (args.InvokedItem)
             {
                 case "博客":
                     ContentFrame.Navigate(typeof(BlogPage));
                     break;
+                case "新闻":
+                    break;
+                default:
+                    break;
             }
+            if(args.InvokedItem!=null&&selectionNavigationViewMenuitem!="设置")
+                selectionNavigationViewMenuitem = args.InvokedItem.ToString();
+            this.Bindings.Update();
+
+            UWP.MySQLiteClass mySQLiteClass = new UWP.MySQLiteClass();
         }
     }
 }

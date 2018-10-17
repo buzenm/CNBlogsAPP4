@@ -10,6 +10,7 @@
 
     <Grid Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
         <NavigationView Margin="0,32,0,0" 
+                         
                         Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
                         IsBackButtonVisible="Collapsed" 
                         Name="MainNavigationView" 
@@ -17,19 +18,24 @@
                         ItemInvoked="MainNavigationView_ItemInvoked"
                         >
             <NavigationView.Header>
-                <TextBlock Name="TilteTextBlock"></TextBlock>
+                <TextBlock Name="TilteTextBlock" Text="{x:Bind selectionNavigationViewMenuitem,Mode=OneWay}"></TextBlock>
             </NavigationView.Header>
+            <!--<NavigationView.AutoSuggestBox>
+                <AutoSuggestBox QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>-->
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Message" Content="博客" Tag="BlogsPage"></NavigationViewItem>
-                <NavigationViewItem Content="新闻"></NavigationViewItem>
+                <NavigationViewItem Icon="showBcc" Content="博客" Tag="BlogsPage"></NavigationViewItem>
+                <NavigationViewItem Icon="Message" Content="新闻"></NavigationViewItem>
                 <NavigationViewItem></NavigationViewItem>
                 <NavigationViewItem></NavigationViewItem>
-                <NavigationViewItem Icon="Contact" Content="个人中心" Tag="" 
+                <NavigationViewItem Icon="Contact" Content="个人中心" Tag="UserPage" 
                                     VerticalAlignment="Bottom"></NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <!--<NavigationViewItem Icon="Contact" Content="个人中心" Tag="UserPage"></NavigationViewItem>-->
-                <HyperlinkButton Margin="50,0,0,0" Content="评价此应用" NavigateUri="https:\\www.baidu.com"></HyperlinkButton>
+                <NavigationViewItem Icon="OutlineStar">
+                    <HyperlinkButton Content="评价此应用" NavigateUri="https:\\www.baidu.com" Tag="Rate"></HyperlinkButton>
+                </NavigationViewItem>
             </NavigationView.PaneFooter>
             <Frame Name="ContentFrame"></Frame>
         </NavigationView>
